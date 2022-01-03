@@ -1,0 +1,15 @@
+{% extends 'blog/main.html' %}
+
+
+{% block content %}
+<p class="likes">Размещено 02.05.2025 в 18:00 (автор Иван Иванов) / 2 комментария</p>
+<h2>Вставить статьи блога из БД</h2>
+<p>Это просто текст</p>
+<p><a href="{% url 'single' %}" class="more">Читать далее..</a></p>
+{% endblock %}
+
+{% block sidebar %}
+
+	{% include 'blog/sidebar.html' %}
+
+{% endblock %}

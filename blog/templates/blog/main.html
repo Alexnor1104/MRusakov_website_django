@@ -1,0 +1,153 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'blog/css/style.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'blog/css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'blog/favicon.png' %}" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="{% static 'blog/js/jquery.min.js' %}"></script>
+
+</head>
+<body>
+<div class="banner about-banner">
+    <div class="banner-grids">
+        <div class="banner-grid-left">
+            <div class="header-logo">
+                <a href="{% url 'index' %}"><img src="{% static 'blog/images/logo.png' %}" alt="" /></a>
+            </div>
+            <div class="top-nav">
+                <ul class="cl-effect-1">
+                    {% for m in menu %}
+                        <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="banner-grid-info">
+            <div class="social-icons">
+                <ul>
+                    <li><a href="#" class="facebook"></a></li>
+                    <li><a href="#" class="facebook twitter"></a></li>
+                    <li><a href="#" class="facebook dribble"></a></li>
+                </ul>
+            </div>
+
+            {% block header %}{% endblock %}
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+ </div>
+<!-- blog -->
+<div class="blog">
+    <!-- container -->
+    <div class="container">
+        <div class="col-md-9 blog-grids">
+            <div class="blog-left single-left">
+
+        {% block content %}{% endblock %}
+
+            </div>
+        </div>
+
+    <div class="col-md-3 sidebar">
+
+    {% block sidebar %}{% endblock %}
+
+    </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!-- //container -->
+</div>
+<!-- //blog -->
+
+<!-- gallery -->
+<div class="gallery">
+    <!-- container -->
+    <div class="container">
+
+    {% block gallery %}{% endblock %}
+
+        <link rel="stylesheet" href="{% static 'css/swipebox.css' %}">
+        <script src="{% static 'js/jquery.swipebox.min.js' %}"></script>
+        <script type="text/javascript">
+            jQuery(function($) {
+                $(".swipebox").swipebox();
+            });
+        </script>
+    </div>
+    <!-- //container -->
+</div>
+<!-- //gallery -->
+
+<!-- footer -->
+<div class="footer">
+    <!-- container -->
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <a href="index.html"><img src="{% static 'images/f-logo.png' %}" alt="" /></a>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="blog.html">Блог</a></li>
+                    <li><a href="contact.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="col-md-3 footer-left">
+                <h3>О нас</h3>
+                <p>Как уже неоднократно упомянуто, независимые государства, превозмогая сложившуюся
+                    непростую экономическую ситуацию, рассмотрены исключительно в разрезе маркетинговых
+                    и финансовых предпосылок.</p>
+            </div>
+            <div class="col-md-3 posts">
+                <h3>Последние статьи</h3>
+                <div class="post-info">
+                    <a href="single.html">Статья 3</a>
+                    <p>25 апреля 2025</p>
+                </div>
+                <div class="post-info">
+                    <a href="single.html">Статья 2</a>
+                    <p>15 марта 2025</p>
+                </div>
+                <div class="post-info">
+                    <a href="single.html">Статья 1</a>
+                    <p>25 февраля 2025</p>
+                </div>
+            </div>
+            <div class="col-md-3 comments">
+                <h3>Комментарии</h3>
+                <p><a href="single.html">Сторонники информации в науке будут рассмотрены исключительно...</a></p>
+                <p><a href="single.html">Очень интересно!</a></p>
+                <p><a href="single.html">Стремящиеся вытеснить традиционное производство, нанотехнологии...</a></p>
+            </div>
+            <div class="col-md-3 address">
+                <h3>Адрес</h3>
+                <ul>
+                    <li>ООО Моя компания,</li>
+                    <li>г. Москва, пр. Ленина, д. 1,</li>
+                    <li>Россия</li>
+                    <li>Телефон: +7 (495) 123 45 67</li>
+                    <li>Факс: 8-000-1234567</li>
+                    <li><a href="mailto:example@example.com">example@example.com</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="copyright">
+                <p>Copyrights © 2025 Birds. Все права защищены.</p>
+            </div>
+        </div>
+    </div>
+    <!-- //container -->
+</div>
+<!-- //footer -->
+
+</body>
+</html>
